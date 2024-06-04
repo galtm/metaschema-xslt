@@ -17,8 +17,10 @@
     
     <xsl:namespace-alias stylesheet-prefix="XSLT" result-prefix="xsl"/>
     
-    <xsl:variable name="source-namespace" select="string(/*/@namespace)" as="xs:string"/>
-    <xsl:variable name="source-prefix"    select="string(/*/@prefix)" as="xs:string"/>
+    <xsl:mode name="make-step" on-no-match="fail"><!-- Obsolete mode --></xsl:mode>
+
+    <xsl:variable name="source-namespace" select="string(/*/@namespace)"/>
+    <xsl:variable name="source-prefix"    select="string(/*/@prefix)"/>
     
     <!-- Interface template for override -->
     <xsl:template match="*" mode="make-match" as="xs:string">
