@@ -414,8 +414,7 @@
     <xsl:variable name="prose-elements" as="text()">p | ul | ol | pre | h1 | h2 | h3 | h4 | h5 | h6 | table</xsl:variable>
     
     <!-- A field without a GI is implicit in the XML; Metaschema prevents it from having flags -->
-    <!-- This template takes precedence over the one that matches field, unqualified
-        (even without priority=2 QUESTION: remove priority=2?) -->
+    <!-- This template takes precedence over the one that matches field, unqualified -->
     <xsl:template priority="2" match="field[empty(@gi)][(.|value)/@as-type='markup-multiline']"
         mode="make-xml-pull" as="element(xsl:for-each-group)">
         <XSLT:for-each-group select="{ $prose-elements }" group-by="true()">
